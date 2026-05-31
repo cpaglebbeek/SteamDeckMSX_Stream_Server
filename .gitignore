@@ -1,0 +1,25 @@
+.DS_Store
+*.swp
+*.bak
+.idea/
+.vscode/
+
+# Geen secrets in git
+.env
+*.key
+*.pem
+sunshine_secrets.conf
+
+# Local Sunshine state / Moonlight pairings
+state/
+
+# openMSX submodule build
+externals/openmsx/derived/
+externals/openmsx/build/
+
+# Geen BIOS/ROMs
+*.rom
+*.dsk
+*.cas
+bios/
+roms/
