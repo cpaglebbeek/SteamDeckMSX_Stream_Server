@@ -8,7 +8,7 @@ openMSX-headless + Sunshine streaming-host op HorseCloud55. Single-user in v0.1.
 
 ## Codenaam-thema
 
-MSX-game-helden. v0.0.1 = **Knightmare**. Vrije pool: zie Meta-repo CLAUDE.md.
+MSX-game-helden. v0.0.1 = **Knightmare**. **Vrije pool + rotatie-regels:** zie `Meta_SteamDeckMSX/CLAUDE.md` § Codenaam-thema (single source of truth).
 
 ## SHARED INFRASTRUCTURE — VERPLICHT raadplegen
 
