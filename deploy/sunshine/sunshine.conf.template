@@ -1,0 +1,73 @@
+# Sunshine config template — SteamDeckMSX_Stream_Server v0.0.2-Parodius
+# Doel-locatie op HC55: /etc/sunshine/sunshine.conf
+# Bron: https://docs.lizardbyte.dev/projects/sunshine/en/latest/about/usage.html
+#
+# Aandachtspunten t.o.v. default:
+# - HC55 = CPU-only (geen GPU). Software x264 encoder is verplicht.
+# - Single-user v0.1.x: alleen 1 Steam Deck mag tegelijk paren.
+# - Latency-budget eindtotaal 60-80 ms. Lokale Sunshine bijdrage <30 ms.
+# - openMSX-headless render moet via X virtual framebuffer (Xvfb) of wayland-headless
+#   draaien — deze conf gaat uit van Xvfb-route (zie apps.json prep-cmd).
+#
+# Wijzigingen markeren met ## TWEAK in commentaar.
+
+##############################################################################
+# Identity / Pairing
+##############################################################################
+# Beschikbaar via Sunshine web-UI op :47990 (TCP) — wachtwoord wordt gevraagd
+# bij eerste boot.
+sunshine_name = "SteamDeckMSX-HC55"
+
+# Channels — Steam Deck Moonlight stuurt 2.0 audio.
+audio_sink = "stereo-fallback.monitor"
+
+##############################################################################
+# Encoder — software x264, 720p60 doel (Steam Deck native 1280x800)
+##############################################################################
+encoder = software
+sw_preset = ultrafast            ## TWEAK — was 'superfast'; CPU-budget HC55 vereist ultrafast
+sw_tune = zerolatency
+sw_qp = 28                       ## TWEAK — kwaliteit/cpu trade-off
+fec_percentage = 20
+
+# Bit-rate cap per spel (Sunshine vraagt client; default 20Mbps OK voor 720p60).
+min_threads = 2
+hevc_mode = 0                    ## TWEAK — uitgeschakeld want x264 only
+
+##############################################################################
+# Resolution / framerate — Steam Deck native
+##############################################################################
+# Moonlight client vraagt zelf; deze waarden zijn server-cap.
+# Game-list (apps.json) defineert per-MSX render size.
+output_name = ":0"               ## TWEAK — Xvfb display vóór Sunshine start
+
+##############################################################################
+# Network
+##############################################################################
+# Sunshine luistert default op 47984 (HTTPS) / 47989 (HTTP) / 47990 (web UI HTTPS).
+# Stream-poorten 47998-48000 (UDP) + 48010 (TCP). Geclaimd in SHARED_INFRA_PATCH.
+# port = 47989                  # default; expliciet hier laten voor duidelijkheid
+upnp = off                       ## TWEAK — UPnP nooit op publieke server
+
+##############################################################################
+# Files
+##############################################################################
+# Geheime PIN-state + paired-clients.
+file_state = /var/lib/sunshine/state.json
+
+# Logs (debug niveau in v0.0.2 — terugschroeven in v0.0.3 productie).
+min_log_level = info             ## TWEAK — was 'debug'
+log_path = /var/log/sunshine/sunshine.log
+
+##############################################################################
+# Security
+##############################################################################
+# Sunshine genereert self-signed cert. Voor publiek bereik later: reverse-proxy
+# via nginx met Let's Encrypt (v0.1.0). Voor nu self-signed.
+origin_pin_allowed = pc          ## TWEAK — alleen pc/lan; default 'lan' is te restrictief
+
+##############################################################################
+# Performance — CPU-budget vriendelijk
+##############################################################################
+# v0.0.2 single-user; meerdere streams gepland v0.3.0+.
+# CPUQuota wordt buiten Sunshine afgedwongen via systemd unit-file.
