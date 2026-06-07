@@ -1,9 +1,17 @@
 ---
 date: 2026-05-31
 repo: SteamDeckMSX_Stream_Server
-status: open
-resume: "verder met SteamDeckMSX_Stream_Server v0.0.2 — Sunshine .deb installeren op HC55 + SHARED_INFRA_PATCH mergen + systemd unit"
+status: done
+resume: ""
 ---
+
+> **Opvolging 2026-06-07 (sessie-bundel SteamDeck MSX):** v0.0.2-Parodius
+> heeft Sunshine config-artefacten (`sunshine.conf.template`, `apps.json`,
+> `xvfb-wrapper.sh`), systemd unit, en uitgebreide `SHARED_INFRA_PATCH.md`
+> in de repo gezet — maar **geen HC55-deploy** (vereist apart WhatIf-akkoord
+> per Deploy Protocol). Deploy verschoven naar v0.0.3 — zie
+> `2026-06-07_v0.0.2_sunshine_config_artefacten.md` (status: done) en
+> `2026-06-07_v0.0.3_hc55_deploy_open.md` (status: open).
 
 # Sessie 2026-05-31 — newp SteamDeckMSX_Stream_Server (variant 2 server)
 

@@ -1,0 +1,63 @@
+{
+  "_comment": "SteamDeckMSX_Stream_Server v0.0.2-Parodius — Sunshine apps.json template. Doel-locatie HC55: /etc/sunshine/apps.json. Iedere entry start een openMSX-headless instantie via Xvfb wrapper. Geen MS-BIOS-distributie — gebruikers leveren eigen BIOS in /opt/steamdeckmsx/share/openmsx/machines/. Test-corpus per P-SDM-04 (cycle-accurate) + P-SDM-05 (geen MS-BIOS).",
+  "env": {
+    "PATH": "$(PATH):/opt/steamdeckmsx/bin:/usr/local/bin:/usr/bin",
+    "OPENMSX_SYSTEM_DATA": "/opt/steamdeckmsx/share/openmsx",
+    "OPENMSX_USER_DATA": "/var/lib/steamdeckmsx",
+    "DISPLAY": ":0"
+  },
+  "apps": [
+    {
+      "name": "MSX — C-BIOS shell (default)",
+      "output": "/var/log/sunshine/app-cbios.log",
+      "prep-cmd": [
+        {
+          "do": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh start :0 1280x800x24",
+          "undo": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh stop :0"
+        }
+      ],
+      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2+ -display ::0",
+      "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/cbios.png",
+      "auto-detach": "false"
+    },
+    {
+      "name": "MSX1 — Bubble Bobble",
+      "output": "/var/log/sunshine/app-bubblebobble.log",
+      "prep-cmd": [
+        {
+          "do": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh start :0 1280x800x24",
+          "undo": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh stop :0"
+        }
+      ],
+      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX1 -cart /var/lib/steamdeckmsx/roms/bubblebobble.rom",
+      "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/bubblebobble.png",
+      "auto-detach": "false"
+    },
+    {
+      "name": "MSX2 — Metal Gear",
+      "output": "/var/log/sunshine/app-metalgear.log",
+      "prep-cmd": [
+        {
+          "do": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh start :0 1280x800x24",
+          "undo": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh stop :0"
+        }
+      ],
+      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2 -cart /var/lib/steamdeckmsx/roms/metalgear.rom",
+      "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/metalgear.png",
+      "auto-detach": "false"
+    },
+    {
+      "name": "MSX2 — Nemesis (SCC audio test)",
+      "output": "/var/log/sunshine/app-nemesis.log",
+      "prep-cmd": [
+        {
+          "do": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh start :0 1280x800x24",
+          "undo": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh stop :0"
+        }
+      ],
+      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2 -cart /var/lib/steamdeckmsx/roms/nemesis2.rom",
+      "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/nemesis2.png",
+      "auto-detach": "false"
+    }
+  ]
+}
