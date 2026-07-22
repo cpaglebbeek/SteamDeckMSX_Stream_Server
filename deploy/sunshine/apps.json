@@ -4,7 +4,9 @@
     "PATH": "$(PATH):/opt/steamdeckmsx/bin:/usr/local/bin:/usr/bin",
     "OPENMSX_SYSTEM_DATA": "/opt/steamdeckmsx/share/openmsx",
     "OPENMSX_USER_DATA": "/var/lib/steamdeckmsx",
-    "DISPLAY": ":0"
+    "DISPLAY": ":0",
+    "SDL_AUDIODRIVER": "pulseaudio",
+    "PULSE_RUNTIME_PATH": "/run/sunshine/pulse"
   },
   "apps": [
     {
@@ -16,7 +18,7 @@
           "undo": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh stop :0"
         }
       ],
-      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2+ -display ::0",
+      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2+",
       "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/cbios.png",
       "auto-detach": "false"
     },
@@ -44,6 +46,19 @@
       ],
       "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2 -cart /var/lib/steamdeckmsx/roms/metalgear.rom",
       "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/metalgear.png",
+      "auto-detach": "false"
+    },
+    {
+      "name": "MSX1 — Nemesis (Gradius)",
+      "output": "/var/log/sunshine/app-nemesis1.log",
+      "prep-cmd": [
+        {
+          "do": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh start :0 1280x800x24",
+          "undo": "/opt/steamdeckmsx/bin/xvfb-wrapper.sh stop :0"
+        }
+      ],
+      "cmd": "/opt/steamdeckmsx/bin/openmsx -machine C-BIOS_MSX2 -cart /var/lib/steamdeckmsx/roms/nemesis.rom",
+      "image-path": "/opt/steamdeckmsx/share/sunshine-boxart/nemesis.png",
       "auto-detach": "false"
     },
     {

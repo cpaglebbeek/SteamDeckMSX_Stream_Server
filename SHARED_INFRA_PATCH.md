@@ -6,8 +6,8 @@
 ## Status
 
 - **Geclaimd in deze patch:** ja
-- **Actief deployed op HC55:** **NEE** (v0.0.3+; vereist deploy-WhatIf + akkoord per `CLAUDE.md` § Deploy Protocol)
-- **Bevestiging in Meta_Master/SHARED_INFRASTRUCTURE.md:** TODO bij eerste deploy
+- **Actief deployed op HC55:** **JA** — v0.1.0-Gradius, 2026-07-22 (zie deploy/state.md)
+- **Bevestiging in Meta_Master/SHARED_INFRASTRUCTURE.md:** GEMERGED 2026-07-22
 - **Versie van deze patch:** v0.0.2-Parodius (2026-06-07)
 
 ## Toe te voegen rij in de Projecten-tabel

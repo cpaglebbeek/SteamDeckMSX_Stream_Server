@@ -22,13 +22,25 @@ MemoryMax=2G
 
 # Working dir + config.
 WorkingDirectory=/opt/steamdeckmsx
+# /run/sunshine voor Xvfb-pidfiles (xvfb-wrapper.sh) — msx-user kan /run niet zelf aanmaken.
+RuntimeDirectory=sunshine
+RuntimeDirectoryPreserve=yes
 Environment="HOME=/var/lib/sunshine"
-Environment="XDG_RUNTIME_DIR=/run/user/%U"
+# /run/sunshine (RuntimeDirectory, msx-owned) — /run/user/<uid> bestaat niet voor system-user msx.
+Environment="XDG_RUNTIME_DIR=/run/sunshine"
 Environment="PATH=/opt/steamdeckmsx/bin:/usr/local/bin:/usr/bin:/bin"
+# Sunshine test capture+encoder bij startup, dus display + audio moeten VÓÓR ExecStart
+# bestaan — niet pas in apps.json prep-cmd (BUG v0.0.3: "Unable to find display or encoder").
+Environment="DISPLAY=:0"
+Environment="PULSE_RUNTIME_PATH=/run/sunshine/pulse"
+# openMSX (SDL2) moet pulse pakken, niet ALSA — er is geen /dev/snd op de VPS.
+Environment="SDL_AUDIODRIVER=pulseaudio"
 
 # Sunshine zelf (verwacht /etc/sunshine/sunshine.conf + /etc/sunshine/apps.json).
 ExecStartPre=/usr/bin/test -f /etc/sunshine/sunshine.conf
 ExecStartPre=/usr/bin/test -f /etc/sunshine/apps.json
+ExecStartPre=/opt/steamdeckmsx/bin/xvfb-wrapper.sh start :0 1280x800x24
+ExecStartPre=-/usr/bin/pulseaudio --daemonize=yes --exit-idle-time=-1 --disallow-exit
 ExecStart=/usr/bin/sunshine /etc/sunshine/sunshine.conf
 
 # Restart-policy: bij crash 5s wachten, max 5 restarts in 60s — voorkomt loop bij config-fout.
