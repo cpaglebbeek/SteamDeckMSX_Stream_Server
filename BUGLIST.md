@@ -8,6 +8,11 @@ _(nog geen — v0.0.1 is alleen skeleton)_
 
 ## Opgelost
 
+### BUG-005 (geel) — WMSX-config vóór wmsx.js-include genegeerd — v0.2.0-Twinbee 2026-07-22
+- **Functioneel:** webclient bootte C-BIOS met "No cartridge found" — ROM-autoload deed niets.
+- **Technisch:** `wmsx.js` (6.0.8) definieert `WMSX = {…}` onvoorwaardelijk en overschrijft het page-object; hij start pas op window.onload. Fix: `WMSX.CARTRIDGE1_URL = …` in een script-tag NÁ de include.
+- **Architectonisch:** upstream-component-contract niet geverifieerd vóór integratie; nu vastgelegd in deploy/webclient/README.md. Verificatie via Playwright-screenshot (Konami-logo) i.p.v. alleen HTTP 200.
+
 ### BUG-001 (geel) — Sunshine "Unable to find display or encoder" bij startup — v0.1.0-Gradius 2026-07-22
 - **Functioneel:** service active maar main loop exit direct; geen enkele encoder gevonden → streamen onmogelijk.
 - **Technisch:** Xvfb werd pas per-app gestart via apps.json prep-cmd, maar Sunshine test capture+encoder al bij service-start; zonder DISPLAY falen software/nvenc/vulkan/vaapi allemaal.

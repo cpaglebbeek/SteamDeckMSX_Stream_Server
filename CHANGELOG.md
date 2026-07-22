@@ -1,5 +1,19 @@
 # CHANGELOG — SteamDeckMSX_Stream_Server
 
+## v0.2.0-Twinbee (2026-07-22) — WebClient /steam/konami LIVE (oranje)
+
+> Tussenstap tussen "niets op de Deck" en Moonlight-pairing: Nemesis 1 + 2
+> browser-speelbaar op https://horsecloud55.ddns.net/steam/konami/ — client-side
+> emulatie (WebMSX 6.0.8 C-BIOS-build), gamepad-support, geen pairing nodig.
+
+- `deploy/webclient/` — landing + nemesis1/2.html + nginx-snippet + README
+- nginx: include-snippet `steamdeckmsx-web.conf` in sites-enabled/horsecloud
+  (:443), `auth_basic off` per user-besluit publiek open; noindex + geen listing;
+  location-count voor=na=61, nginx -t OK, alle services up
+- Verificatie: Playwright-screenshots — beide Konami-logo's booten in Chromium
+- **BUG-005 (geel):** WMSX-page-config vóór script-include wordt overschreven —
+  wmsx.js definieert `WMSX` onvoorwaardelijk; config hoort NÁ de include (RCA in BUGLIST.md)
+
 ## v0.1.0-Gradius (2026-07-22) — EERSTE ECHTE HC55-DEPLOY: Sunshine + openMSX LIVE (oranje)
 
 > Codenaam **Gradius** = de Japanse naam van **Nemesis** — passend: deze release

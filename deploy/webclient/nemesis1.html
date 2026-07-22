@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Nemesis — SteamDeckMSX WebClient</title>
+    <style>
+        body { margin: 0; background: #10141f; min-height: 100vh;
+               display: flex; align-items: center; justify-content: center; }
+        #wmsx-screen { box-shadow: 0 0 24px rgba(74, 125, 255, .35); }
+    </style>
+</head>
+<body>
+    <div id="wmsx">
+        <div id="wmsx-screen"></div>
+    </div>
+    <script src="../wmsx/wmsx.js"></script>
+    <script>
+        // Config NÁ wmsx.js: die definieert WMSX onvoorwaardelijk en start pas op
+        // window.onload (BUG: config vóór include wordt overschreven).
+        // C-BIOS-build — geen MS-BIOS (P-SDM-05).
+        WMSX.CARTRIDGE1_URL = "nemesis.rom";
+    </script>
+</body>
+</html>

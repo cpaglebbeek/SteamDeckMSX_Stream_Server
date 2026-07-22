@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>SteamDeckMSX — Konami WebClient</title>
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 2rem;
+            background: #10141f; color: #e8e8f0;
+            font-family: "Courier New", ui-monospace, monospace;
+        }
+        h1 { color: #4a7dff; letter-spacing: .15em; text-shadow: 0 0 12px #2a4dbf; margin: 0; }
+        p  { color: #8890a8; max-width: 34rem; text-align: center; line-height: 1.5; margin: 0 1rem; }
+        nav { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        a.game {
+            display: block; padding: 1rem 1.6rem; border: 2px solid #4a7dff; border-radius: 8px;
+            color: #e8e8f0; text-decoration: none; background: #182038;
+            transition: background .15s, transform .15s;
+        }
+        a.game:hover { background: #24304f; transform: translateY(-2px); }
+        a.game small { display: block; color: #8890a8; margin-top: .3rem; }
+        footer { color: #565e74; font-size: .75rem; text-align: center; margin: 0 1rem 1rem; }
+    </style>
+</head>
+<body>
+    <h1>KONAMI · MSX</h1>
+    <p>SteamDeckMSX WebClient — draait volledig in je browser (WebMSX, C-BIOS).
+       Gamepad wordt ondersteund; op de Steam Deck werkt de ingebouwde controller direct.</p>
+    <nav>
+        <a class="game" href="nemesis1.html">NEMESIS<small>MSX1 · 1986 · Gradius</small></a>
+        <a class="game" href="nemesis2.html">NEMESIS 2<small>MSX1 · 1987 · SCC</small></a>
+    </nav>
+    <footer>Privé-installatie voor eigen cartridge-dumps · SteamDeckMSX_Stream_Server v0.2.0 · HorseCloud55</footer>
+</body>
+</html>
