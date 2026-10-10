@@ -7,7 +7,7 @@ Companion-client: [SteamDeckMSX_Stream_Client](https://github.com/cpaglebbeek/St
 ## Status
 
 - **Versie:** v0.0.1-Knightmare (skeleton)
-- **Doel-host:** `horsecloud55.ddns.net` (Ubuntu 24.04, 16GB RAM, CPU-only)
+- **Doel-host:** `icthorsecloud.nl` (Ubuntu 24.04, 16GB RAM, CPU-only)
 - **Geen GPU** → software-encoding via libx264, ~1-2 cores piek
 
 ## Architectuur (kort)

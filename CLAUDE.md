@@ -39,7 +39,7 @@ Elke deploy raakt HC55 → potentieel kritiek voor andere projecten. Daarom:
 
 1. WhatIf met expliciete impact-vraag: "welke andere services raakt dit?"
 2. Akkoord
-3. SSH naar HC55: `ssh -i ~/.ssh/hetzner root@horsecloud55.ddns.net`
+3. SSH naar HC55: `ssh -i ~/.ssh/hetzner root@icthorsecloud.nl`
 4. Backup eventueel te wijzigen config-files vóór wijziging
 5. Deploy
 6. Health-check: `systemctl status steamdeckmsx-stream.service` (vanaf v0.0.3)

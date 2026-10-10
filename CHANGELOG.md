@@ -3,7 +3,7 @@
 ## v0.2.0-Twinbee (2026-07-22) — WebClient /steam/konami LIVE (oranje)
 
 > Tussenstap tussen "niets op de Deck" en Moonlight-pairing: Nemesis 1 + 2
-> browser-speelbaar op https://horsecloud55.ddns.net/steam/konami/ — client-side
+> browser-speelbaar op https://icthorsecloud.nl/steam/konami/ — client-side
 > emulatie (WebMSX 6.0.8 C-BIOS-build), gamepad-support, geen pairing nodig.
 
 - `deploy/webclient/` — landing + nemesis1/2.html + nginx-snippet + README

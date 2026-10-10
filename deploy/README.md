@@ -4,7 +4,7 @@
 
 ## Pre-condities
 
-- HC55 SSH-toegang via `ssh -i ~/.ssh/hetzner root@horsecloud55.ddns.net`
+- HC55 SSH-toegang via `ssh -i ~/.ssh/hetzner root@icthorsecloud.nl`
 - `Meta_Master/SHARED_INFRASTRUCTURE.md` gelezen (poort 47984-48010 conflict-vrij)
 - `Meta_Master/SHARED_INFRA_PATCH.md` (zie repo-root) gemerged in shared-infra-tabel
 
@@ -45,8 +45,8 @@ cp deploy/sunshine/sunshine.conf.template /etc/sunshine/sunshine.conf
 ## Stap 5 — Pairing met Steam Deck
 
 1. Op Deck: open Moonlight (Flatpak via Discover)
-2. Verbind met `horsecloud55.ddns.net`
-3. Sunshine genereert PIN-code → vul in op `https://horsecloud55.ddns.net:47990`
+2. Verbind met `icthorsecloud.nl`
+3. Sunshine genereert PIN-code → vul in op `https://icthorsecloud.nl:47990`
 4. Refresh Moonlight → "MSX-stream" zichtbaar als launchable app
 
 ## Stap 6 — Health-check

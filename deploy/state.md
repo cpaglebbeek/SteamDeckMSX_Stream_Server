@@ -22,9 +22,9 @@ Web-UI is origin-restricted (extern → 403, bewust). PIN invoeren via tunnel:
 
 ```bash
 # Op de Mac:
-ssh -i ~/.ssh/hetzner -L 47990:localhost:47990 root@horsecloud55.ddns.net
+ssh -i ~/.ssh/hetzner -L 47990:localhost:47990 root@icthorsecloud.nl
 # Browser: https://localhost:47990  (creds: zie ClaudeSecrets)
-# Op de Deck: Moonlight → host horsecloud55.ddns.net → PIN verschijnt → invullen in web-UI
+# Op de Deck: Moonlight → host icthorsecloud.nl → PIN verschijnt → invullen in web-UI
 ```
 
 ## Rollback
